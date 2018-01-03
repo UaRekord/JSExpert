@@ -1,0 +1,9 @@
+//объявляю переменные one, two, three
+let one = two = three = 776;
+//вывожу по одной переменной в строке
+console.log("one = " + one + "\ntwo = " + two + "\nthree = " + three);
+
+one = true;
+two = 2;
+three = "ТРИ";
+console.log("one = " + one + "\ntwo = " + two + "\nthree = " + three);

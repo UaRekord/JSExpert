@@ -1,0 +1,31 @@
+3. 
+
+Затем поочередно присваивайте ей разные значения и выводите в консоль.
+Булевое значение -> в консоль, число -> в консоль, string -> в консоль, null -> в консоль.
+И в конце проверьте переменную с null с помощью оператора typeof.
+
+
+//Объявите переменную, но не присваивайте ей значение.
+let example;
+
+//Выведите ее в консоль чтобы убедиться, что она undefined.
+console.log("example = " + example);
+
+//Булевое значение -> в консоль
+example = true;
+console.log("example = " + example);
+
+//число -> в консоль
+example = 10;
+console.log("example = " + example);
+
+//string -> в консоль
+example = "test text";
+console.log("example = " + example);
+
+//null -> в консоль
+example = null
+console.log("example = " + example);
+
+//в конце проверьте переменную с null с помощью оператора typeof
+console.log("example = " + typeof(example) + ", значит " + example + "=" + typeof(example) + ",круто :)");
