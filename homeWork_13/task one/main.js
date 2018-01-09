@@ -8,16 +8,21 @@ function game() { //заворачиваю весь код в функцию и 
     const element = document.getElementById("result");
     //Сделать функцию для получения случайных чисел getRndNumber
     const getRndNumber = () => Math.floor((Math.random() * 6) + 1);
+
     //Сделать одну функцию которая будет склеивать все строки в одну
     const setResult = (...rest) => rest.join("");
+
     //Сделать функцию для определения совпадений
-    const isNumberEqual = (a, b) => (a === b) ? setResult("Выпал дубль ", first, " : ", second, "<br>") : ("");
+    const isNumberEqual = (a, b) => (a === b) ? setResult("Выпал дубль ", first, " : ", second, "<br>") : "";
+
     //Сделать функцию для определения разницы
     const isBigDifference = (a, b) => {
         if ((a < 3 && second > 4) || (b > 4 && a < 3)) {
             return setResult("Большой разброс между костями. Разница составляет: ", Math.abs(second - first), "<br>");
         }
-        else return ("");
+        else {
+            return "";
+        }
     }
     //бизнес-логика
     (function run() { //Создать главную самозапускающуюся функцию run() в которой будет выполняться основной код (цикл)
