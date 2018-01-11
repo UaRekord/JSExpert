@@ -8,7 +8,7 @@ var data = [{
 		progress: "80"
 	},
 	description : "Be conveyed to users of assistive technologies – such as",
-	date : 1422153200637
+    date: 1422153200637
 },{
 	url: "desktopwallpapers.org.ua/mini/201507/40068.jpg",
 	name: "DAEWOO",
@@ -18,7 +18,7 @@ var data = [{
 		progress: "88"
 	},
 	description : "sing color to add meaning to a button",
-	date : 1421153200637
+    date: 1421153200637
 },{
 	url: "desktopwallpapers.org.ua/mini/201507/40067.jpg",
 	name: "VOLKSWAGEN",
@@ -38,7 +38,7 @@ var data = [{
 		progress: "38"
 	},
 	description : "ssistive technologies – such as screen readers. Ensure",
-	date : 1428153200637
+    date: 1428153200637
 },{
 	url: "desktopwallpapers.org.ua/mini/201507/40066.jpg",
 	name: "BMW",
@@ -48,7 +48,7 @@ var data = [{
 		progress: "12"
 	},
 	description : "color to add meaning to a button only provides",
-	date : 1402153200637
+    date: 1402153200637
 },{
 	url: "desktopwallpapers.org.ua/mini/201507/40064.jpg",
 	name: "MERCEDES",
@@ -58,7 +58,7 @@ var data = [{
 		progress: "83"
 	},
 	description : "om the content itself (the visible text of the button)",
-	date : 1442153200637
+    date: 1442153200637
 },{
 	url: "desktopwallpapers.org.ua/mini/201507/40063.jpg",
 	name: "SKODA",
@@ -68,7 +68,7 @@ var data = [{
 		progress: "49"
 	},
 	description : "r is either obvious from the content itself",
-	date : 1482153200637
+    date: 1482153200637
 },{
 	url: "desktopwallpapers.org.ua/mini/201507/40062.jpg",
 	name: "FORD",
@@ -78,7 +78,7 @@ var data = [{
 		progress: "14"
 	},
 	description : "included through alternative means, such as additional text hidden with the",
-	date : 1442153200637
+    date: 1442153200637
 },{
 	url: "desktopwallpapers.org.ua/mini/201507/40059.jpg",
 	name: "TOYOTA",
@@ -88,15 +88,15 @@ var data = [{
 		progress: "20"
 	},
 	description : "meaning to a button only provides a visual",
-	date : 1322153200637
+    date: 1322153200637
 },{
-	url: "desktopwallpapers.org.ua/mini/201507/40058.jpg",
+    url: "desktopwallpapers.org.ua/mini/201507/40058.jpg",
 	name: "RENAULT",
 	id : 10,
 	params: {
 		status: true,
-		progress: "40"
+        progress: "40"
 	},
 	description : "uded through alternative means, such as additional",
-	date : 1322159200637
+    date: 1322159200637
 }]
