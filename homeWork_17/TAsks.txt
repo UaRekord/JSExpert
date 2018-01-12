@@ -1,0 +1,100 @@
+Задачи
+task 1
+goods = ['foods', 'fruits', 'technics', 'phones', 'computers'];
+
+
+const remove = (arr, str) => (arr.indexOf(str)!= -1) ? arr.splice(arr.indexOf(str), 1) : alert("в массиве нет такого значения");
+
+remove(goods, 'technics');
+
+console.log(goods);
+
+task 2
+'use strict';
+
+let 	nowDate = new Date(),
+	hh = nowDate.getHours(),
+	mm = nowDate.getMinutes(),
+	day = nowDate.getDate(),
+
+	month = nowDate.getMonth(),
+
+	year = nowDate.getFullYear();
+(hh < 10) ? hh = '0' + hh : null;
+
+(mm < 10) ? mm = '0' + mm : null;
+(day < 10) ? day = '0' + day : null;
+(month < 9) ? month = '0' + (month + 1) : month = month++;
+
+console.log(`${hh}:${mm}  ${day}/${month}/${year}`);
+
+task 3
+'use strict';
+
+let str1 = "/home/user/project/script.html";
+
+function getExt(str){
+
+	let dotIndex = str.lastIndexOf(".");
+
+	((dotIndex > 0) && (dotIndex != str.length-1)) ? str = str.slice(dotIndex) : str = "имя файла не имеет расширения";
+	return str;
+
+	}
+
+console.log(getExt(str1));
+
+task 4 вариант 1
+'use strict';
+
+let inputArray = [1, 2, 2, 4, 5, 4, 7, 8, 7, 3, 6];
+
+
+function removeDuplic(arr){
+
+	for (let i = 0; i < arr.length; i++ ) {
+		for (let j = i+1; j < arr.length; j++ ) {
+
+			if (arr[j] == arr[i]) {
+			arr.splice(j, 1);
+			}
+		}
+
+	}
+	return arr;
+
+}
+
+
+console.log("было " + inputArray);
+
+console.log("стало " + removeDuplic(inputArray));
+
+task 4 вариант 2, идею посмотрел у Ильи Кантора, массив пишется ключами в объект, они автоматом перезаписываются
+и дубликатов не будет, на больших массивах работает быстрее предыдущего простого способа.
+
+'use strict';
+
+let inputArray = [99, 1, 2, 2, 4, 5, 4, 7, 8, 99, 7, 3, 6];
+
+
+function removeDuplic(arr){
+
+let	tmpObj = {},
+
+	str = "";
+ 
+	for (let i = 0; i < arr.length; i++ ) {
+		str = arr[i];
+
+		tmpObj[str] = true;
+
+	}
+
+	return Object.keys(tmpObj);
+
+}
+
+console.log("было " + inputArray);
+
+console.log("стало " + removeDuplic(inputArray));
