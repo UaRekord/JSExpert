@@ -17,34 +17,27 @@ const getDate = (ms) => moment(ms).format("YYYY-MM-DD HH:mm");
 
 //10. Для поля params: из значений ключей сформировать строку типа «true=>80»
 // функция будет работоспособна для любого количества элементов объекта params
-function convertParams(params) {
-    let converted = "";
-    for (key in params) {
-        converted += params[key] + "=>"; 
-    }
-    return converted.slice(0, -2);
-}
+const convertParams = (params) => `${params.status}=>${params.progress}`;
 
-/* 11. Создать новое поле isVisible. Переложить в это поле значение поля params.status
- У меня на 10м шаге уже нету поля params.status. Поэтому усложню функцию, чтоб она работала
-в любом месте кода, if - сработает если есть param.status, тернарник - если нету */
-
-function createisVisible(item) {
-    let element = item.isVisible; 
-        tmpParam = item.params;
-    if ((element === undefined) && (tmpParam.status !== undefined)) {
-        element = tmpParam.status;
-    }
-    else {
-        tmpParam.slice(0, - 4) == "true" ? element = true : element = false;
-    }
-    return element;
-}
 //12. Теперь с помощью функции filter вам необходимо выбрать только те элементы у которых isVisible == true
-const filterByIsVisible = (item) => (item.isVisible) ? true : false;
+const filterByIsVisible = (item) => item.isVisible;
 
 //13. вывод
 const output = (array) => console.table(array);
+
+function getConvertedArray(arr) {
+    return arr.map(function (item) {
+        return {
+            name: firstLetter(item.name),
+            url: addHttp(item.url),
+            description: truncDesc(item.description),
+            date: getDate(item.date),
+            params: convertParams(item.params),
+            isVisible: item.params.status
+        }
+    });
+ 
+}
 
 function transform() {
 
@@ -61,19 +54,8 @@ function transform() {
     });
 
     //3. По новому массиву объектов, полученному с помощью функции forEach пройдитесь методом map()
-    //4. преобразоваем его поля по следующим правилам
-    newArr.map(function (item, index) {
-        item.name = firstLetter(item.name);
-        item.url = addHttp(item.url);
-        item.description = truncDesc(item.description);
-        item.date = getDate(item.date);
-        item.params = convertParams(item.params);
-        item.isVisible = createisVisible(item);
-        
-    });
-
-    newArr = newArr.filter(filterByIsVisible);
-    output(newArr);
+    //4. преобразоваем его поля по следующим правилам и выводим
+     output(getConvertedArray(newArr).filter(filterByIsVisible));
     //можно посмотреть вывод не заходя в консоль
     //document.getElementById("result").innerHTML = JSON.stringify((newArr), null, "<br>");
 }
