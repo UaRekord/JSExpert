@@ -7,9 +7,13 @@ const determineHowToBuild = () => document.getElementById("type-selector").value
 const addHttp = (param) => "http://" + param; // преобразование URL
 const truncDesc = (param) => param.substr(0, 15) + "..."; // обрезаю описание
 const getDate = (ms) => moment(ms).format("YYYY-MM-DD HH:mm"); // форматирую дату
-const showModal = (state) => {   //показываю модальное окно, если пользователь не выбрал как строить галерею
-    document.getElementById('window').style.display = state;  //html код и css стили я добавил заранее
-    document.getElementById('wrap').style.display = state;
+const showModal = () => {   //показываю модальное окно, если пользователь не выбрал как строить галерею
+    document.getElementById('window').style.display = "block";  //html код и css стили я добавил заранее
+    document.getElementById('wrap').style.display = "block";
+}
+const closeModal = () => {   //закрываю модальное окно, если пользователь не выбрал как строить галерею
+    document.getElementById('window').style.display = "none";  //html код и css стили я добавил заранее
+    document.getElementById('wrap').style.display = "none";
 }
 // считаю количество элементов для показа галереи
 function determineItemsCount(arr) {
@@ -122,7 +126,11 @@ function createElem(arr) {
  }
 
 (function () {
-    let btn = document.getElementById('play');
+    let btn = document.getElementById('play'),
+        closeWindow = document.getElementById('wrap'),
+        closeSymbol = document.querySelector('.close'),
+        closeBtn = document.querySelector('.closebtn');
+
     
     function init() {
         
@@ -131,7 +139,7 @@ function createElem(arr) {
         secondBlock = document.querySelector('#second-line'),
         thirdBlock = document.querySelector('#third-line'),
         newArr = getConvertedArray(data);
-
+    
     hideAll(); //прячем все блоки, с помощью toggle показываем нужный
 
     switch (determineHowToBuild()) { //в зависимости от выбранного способа запускаем нужную функцию из вышеописанных
@@ -148,10 +156,12 @@ function createElem(arr) {
             createElem(newArr);
             break;
         default:
-            showModal('block');
+            showModal();
         }
 }
 
 btn.addEventListener("click", init);
-
+closeWindow.addEventListener("click", closeModal);
+closeSymbol.addEventListener("click", closeModal);
+closeBtn.addEventListener("click", closeModal);
 })()
