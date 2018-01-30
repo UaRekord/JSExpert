@@ -1,8 +1,13 @@
-'use strict'
-var first = document.querySelector('.first-group').classList,
-    second = document.querySelector('.second-group').classList,
-    third = document.querySelector('.third-group').classList;
-    
+//'use strict'
+(function () {
+    let btn = document.getElementById('play'),
+        closeWindow = document.getElementById('wrap'),
+        closeSymbol = document.querySelector('.close'),
+        closeBtn = document.querySelector('.closebtn'),
+        first = document.querySelector('.first-group').classList,
+        second = document.querySelector('.second-group').classList,
+        third = document.querySelector('.third-group').classList;
+        
 const determineHowToBuild = () => document.getElementById("type-selector").value; // определяю метод построения галереи
 const addHttp = (param) => "http://" + param; // преобразование URL
 const truncDesc = (param) => param.substr(0, 15) + "..."; // обрезаю описание
@@ -16,19 +21,17 @@ const closeModal = () => {   //закрываю модальное окно, е�
     document.getElementById('wrap').style.display = "none";
 }
 // считаю количество элементов для показа галереи
-function determineItemsCount(arr) {
+function determineItemsCount() {
     let count = document.getElementById('line-selector').value;
-    (count != 0) ? count *= 3 : count = arr.length;
+    (count != 0) ? count *= 3 : count = newArr.length;
     return count;
 }
-
 //скрываю все блоки 
 function hideAll() {
     first.add('hide');
     second.add('hide');
     third.add('hide');
 }
-
 //выдергиваем данные из массива для галереи
 function getConvertedArray(arr) {
     return arr.map(function (item) {
@@ -40,7 +43,6 @@ function getConvertedArray(arr) {
             }
     });
 }
-
 //replace метод
 function replace(arr) {
     let resultHTML = "",
@@ -125,23 +127,15 @@ function createElem(arr) {
     }
  }
 
-(function () {
-    let btn = document.getElementById('play'),
-        closeWindow = document.getElementById('wrap'),
-        closeSymbol = document.querySelector('.close'),
-        closeBtn = document.querySelector('.closebtn');
-
-    
     function init() {
         
     // запускаете необходимую логику
     let firstBlock = document.querySelector('#first-line'),
         secondBlock = document.querySelector('#second-line'),
-        thirdBlock = document.querySelector('#third-line'),
-        newArr = getConvertedArray(data);
-    
+        thirdBlock = document.querySelector('#third-line');
+            
     hideAll(); //прячем все блоки, с помощью toggle показываем нужный
-
+    newArr = getConvertedArray(data);
     switch (determineHowToBuild()) { //в зависимости от выбранного способа запускаем нужную функцию из вышеописанных
         case "1":
             first.toggle('hide'); // переключаю класс hide
