@@ -14,7 +14,35 @@ function LoginService() {
          login: '',
          password: ''
    };
-    
+                    //_________________________ PRIVATE _________________________ 
+   // надпись сверху красным, если неправильный ввод в поля формы
+   const createDangerMessage = (str) => {
+       dangerMessage.classList.remove('hide');
+       return dangerMessage.innerHTML = str;
+
+   };
+   function isValid() { // проверка корректности заполнения полей формы
+       let storageLogin = localStorage.getItem('login'),
+           storagePassword = localStorage.getItem('password');
+       inputObj.login = inputEmail.value;
+       inputObj.password = inputPassword.value;
+       if (inputObj.login == '' || inputObj.password == '') {
+           createDangerMessage('Поля не повинні бути пустими!');
+           return false;
+       }
+       else if (!inputObj.login.match(emailRegular)) {
+           createDangerMessage('Невірний формат e-mail!');
+           return false;
+       }
+       else if (inputObj.login == storageLogin && inputObj.password == storagePassword) {
+           return true;
+       }
+       else {
+           createDangerMessage('Перевірте коректність логіну та пароля!');
+           return false;
+       }
+   } 
+                    //_________________________ PUBLIC _________________________ 
    this.back = function() { // работает по нажатию кнопки выхода из профиля, возвращает форму ввода логина и пароля
        aboutUser.classList.toggle('hide');
        mainForm.classList.toggle('hide');
@@ -42,35 +70,8 @@ function LoginService() {
         for (var key in this.obj) {
             localStorage.setItem(key, obj[key]);
         }
-   }              // надпись сверху красным, если непправильный ввод в поля формы
-   const createDangerMessage = (str) => {
-       dangerMessage.classList.remove('hide');
-       return dangerMessage.innerHTML = str;
-        
-   };
-
-    function isValid() { // проверка корректности заполнения полей формы
-        let storageLogin = localStorage.getItem('login'),
-            storagePassword = localStorage.getItem('password');
-            inputObj.login = inputEmail.value;
-            inputObj.password = inputPassword.value;
-        if (inputObj.login == '' || inputObj.password == '') {
-            createDangerMessage('Поля не повинні бути пустими!');
-            return false;
-        }  
-        else if (!inputObj.login.match(emailRegular)) {
-            createDangerMessage('Невірний формат e-mail!');
-            return false;
-        }      
-        else if (inputObj.login == storageLogin && inputObj.password == storagePassword) {
-            return true;
-        }
-        else {
-            createDangerMessage('Перевірте коректність логіну та пароля!');
-            return false;
-        }
-    }
-    this.initComponent = function() { //логика приложения
+   }              
+   this.initComponent = function() { //логика приложения
             if (isValid()) {
                 aboutUser.classList.remove('hide');
                 mainForm.classList.add('hide');
