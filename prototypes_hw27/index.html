@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <title>Форма входа</title>
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+
+  <body>
+      <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
+          <h5 class="my-0 mr-md-auto font-weight-normal">JSExpert</h5>
+          <nav class="my-2 my-md-0 mr-md-3">
+              <a class="p-2 text-dark" href="#" id="galleryMenu">Галерея</a>
+              <a class="p-2 text-dark" href="#" id="aboutUser">О пользователе</a>
+          </nav>
+          <a class="btn btn-outline-primary hide" href="#" id="exitButton">Выход</a>
+      </div>
+
+      <main class="text-center hide" role="main" id="loginForm">
+          <div class="alert alert-danger hide" role="alert">
+              This is a danger alert—check it out!
+          </div>
+          <form class="form-signin">
+
+              <h1 class="h3 mb-3 font-weight-normal">Будь ласка, увійдіть!</h1>
+              <label for="inputEmail" class="sr-only">Email</label>
+              <input type="text" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAAAAXNSR0IArs4c6QAAAPhJREFUOBHlU70KgzAQPlMhEvoQTg6OPoOjT+JWOnRqkUKHgqWP4OQbOPokTk6OTkVULNSLVc62oJmbIdzd95NcuGjX2/3YVI/Ts+t0WLE2ut5xsQ0O+90F6UxFjAI8qNcEGONia08e6MNONYwCS7EQAizLmtGUDEzTBNd1fxsYhjEBnHPQNG3KKTYV34F8ec/zwHEciOMYyrIE3/ehKAqIoggo9inGXKmFXwbyBkmSQJqmUNe15IRhCG3byphitm1/eUzDM4qR0TTNjEixGdAnSi3keS5vSk2UDKqqgizLqB4YzvassiKhGtZ/jDMtLOnHz7TE+yf8BaDZXA509yeBAAAAAElFTkSuQmCC&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%;" autocomplete="off">
+              <div class="mb-3"></div>
+              <label for="inputPassword" class="sr-only">Пароль</label>
+              <input type="text" id="inputPassword" class="form-control" placeholder="Password" required="" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAAAAXNSR0IArs4c6QAAAPhJREFUOBHlU70KgzAQPlMhEvoQTg6OPoOjT+JWOnRqkUKHgqWP4OQbOPokTk6OTkVULNSLVc62oJmbIdzd95NcuGjX2/3YVI/Ts+t0WLE2ut5xsQ0O+90F6UxFjAI8qNcEGONia08e6MNONYwCS7EQAizLmtGUDEzTBNd1fxsYhjEBnHPQNG3KKTYV34F8ec/zwHEciOMYyrIE3/ehKAqIoggo9inGXKmFXwbyBkmSQJqmUNe15IRhCG3byphitm1/eUzDM4qR0TTNjEixGdAnSi3keS5vSk2UDKqqgizLqB4YzvassiKhGtZ/jDMtLOnHz7TE+yf8BaDZXA509yeBAAAAAElFTkSuQmCC&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%;" autocomplete="off">
+              <div class="mb-3"></div>
+              <button class="btn btn-lg btn-primary btn-block" type="submit" id="enterButton">Войти</button>
+              <p class="mt-5 mb-3 text-muted">© 2017-2018</p>
+          </form>
+      </main>
+
+      <div class="hide" id="aboutUserBlock">
+          <h1 class="h3 mb-3 font-weight-normal text-center">Информація про користувача</h1>
+          <label for="login" class="col-1 inputLabel">Логін</label>
+          <input type="email" class="form-control myInput " id="loginAboutUser" disabled>
+          <div class="container-2">
+              <label for="password" class="col-1 inputLabel ">Пароль</label>
+              <input type="text" class="form-control myInput" id="passwordAboutUser">
+              <button class="btn btn-danger" type="button" id="showButton" data-state="close">Показати пароль</button>
+          </div>
+          <button class="btn btn-lg btn-primary btn-block" type="button" id="backAboutUser">Назад до галереї</button>
+      </div>
+
+      
+      <main role="main" id="mainGalleryBlock" class="hide">
+      <section class="jumbotron text-center">
+        <div class="container">
+          <h1 class="jumbotron-heading">Автомобильная галерея</h1>
+          <p class="lead text-muted">На этой странице вы можете увидеть отличную галерею,
+            которая дает вам возможность ознакомится с нашим каталогом транспортных средств. </p>
+          <div class="row">
+            <div class="col-md-6">
+
+                <div class="btn-group" id="dropdown-name">
+                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Фильтровать по имени
+                    </button>
+                    <div class="dropdown-menu">
+                      <a class="dropdown-item" data-type="acs" href="#">Вперед: от А до Я</a>
+                      <a class="dropdown-item" data-type="desc" href="#">Назад: от Я до А</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-5">
+                <div class="btn-group" id="dropdown-date">
+                    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Фильтровать по дате
+                    </button>
+                    <div class="dropdown-menu">
+                      <a class="dropdown-item" data-type="new" href="#">Сначала новые</a>
+                      <a class="dropdown-item" data-type="old" href="#">Сначала старые</a>
+                    </div>
+                </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      
+      <div class="album py-5 bg-light">
+          <div class="container">
+              <div class="row" id="gallery"></div>
+              <div class="text-center hide">
+                  <a href="#" id="next-page" class="btn btn-primary my-2">Добавить картинку</a>
+              </div>
+          </div>
+      </div>
+    </main> 
+
+      <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
+      <script src="https://getbootstrap.com/assets/js/vendor/popper.min.js"></script>
+      <script src="https://getbootstrap.com/dist/js/bootstrap.min.js"></script>
+      <script src=js/data.js></script>
+      <script src=js/gallery.js></script>
+      <script src=js/validator.js></script>
+      <script src=js/login.js></script>
+      <script src=js/user.js></script>
+      <script src=js/main.js></script>
+  </body>
+</html>

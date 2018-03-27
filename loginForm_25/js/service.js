@@ -7,7 +7,11 @@ const loginService = (function() {
            inputPassword = document.getElementById('inputPassword'),
            aboutUser = document.querySelector('.aboutUser'),
            mainForm = document.getElementById('mainForm'),
-           loginAboutUser = document.getElementById('loginAboutUser'), //регулярка по стандарту HTML5
+           loginAboutUser = document.getElementById('loginAboutUser'),
+           enterButton = document.getElementById('enterButton'),
+           backButton = document.getElementById('backAboutUser'),
+           showButton = document.getElementById('showButton'),
+           //регулярка по стандарту HTML5
            emailRegular = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
 
      let inputObj = {
@@ -15,7 +19,13 @@ const loginService = (function() {
          password: ''
      };
     
-   function back() { // работает по нажатию кнопки выхода из профиля, возвращает форму ввода логина и пароля
+     function initEventListeners() {
+         enterButton.addEventListener("click", loginService.initComponent);
+         backButton.addEventListener("click", loginService.back);
+         showButton.addEventListener("click", loginService.showHidePass);
+     }
+
+     function back() { // работает по нажатию кнопки выхода из профиля, возвращает форму ввода логина и пароля
        aboutUser.classList.toggle('hide');
        mainForm.classList.toggle('hide');
        dangerMessage.classList.add('hide');

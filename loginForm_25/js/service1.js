@@ -7,7 +7,11 @@ function LoginService() {
          inputPassword = document.getElementById('inputPassword'),
          aboutUser = document.querySelector('.aboutUser'),
          mainForm = document.getElementById('mainForm'),
-         loginAboutUser = document.getElementById('loginAboutUser'), //регулярка по стандарту HTML5
+         loginAboutUser = document.getElementById('loginAboutUser'),
+         enterButton = document.getElementById('enterButton'),
+         backButton = document.getElementById('backAboutUser'),
+         showButton = document.getElementById('showButton'),
+         //регулярка по стандарту HTML5
          emailRegular = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
 
    let inputObj = {
@@ -16,6 +20,12 @@ function LoginService() {
    };
                     //_________________________ PRIVATE _________________________ 
    // надпись сверху красным, если неправильный ввод в поля формы
+   function initEventListeners() {
+       enterButton.addEventListener("click", initComponent);
+       backButton.addEventListener("click", back);
+       showButton.addEventListener("click", showHidePass);
+   }
+
    const createDangerMessage = (str) => {
        dangerMessage.classList.remove('hide');
        return dangerMessage.innerHTML = str;
@@ -41,7 +51,15 @@ function LoginService() {
            createDangerMessage('Перевірте коректність логіну та пароля!');
            return false;
        }
-   } 
+   }
+   initComponent = function () { //логика приложения
+       if (isValid()) {
+           aboutUser.classList.remove('hide');
+           mainForm.classList.add('hide');
+           loginAboutUser.value = inputObj.login;
+           pass.value = inputObj.password.replace(/./g, '*');
+       }
+   }
                     //_________________________ PUBLIC _________________________ 
    this.back = function() { // работает по нажатию кнопки выхода из профиля, возвращает форму ввода логина и пароля
        aboutUser.classList.toggle('hide');
@@ -71,12 +89,5 @@ function LoginService() {
             localStorage.setItem(key, obj[key]);
         }
    }              
-   this.initComponent = function() { //логика приложения
-            if (isValid()) {
-                aboutUser.classList.remove('hide');
-                mainForm.classList.add('hide');
-                loginAboutUser.value = inputObj.login;
-                pass.value = inputObj.password.replace(/./g, '*');
-            }   
-    }                          
+                             
 }
